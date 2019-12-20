@@ -11,7 +11,7 @@ class Person(object):
         self.infection = infection #virus object
         
     def did_survive_infection(self):
-        mortality_rate = self.infection.mortality_rate
+        mortality_rate = self.infection.mortality_num
         if self.infection:
             random_float = random.randrange(0,1)
             if random_float < mortality_rate:

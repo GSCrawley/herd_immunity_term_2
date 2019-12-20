@@ -43,18 +43,18 @@ class Simulation:
     def print_population(self):
         '''Prints out every person in the population and their current attributes'''
         for person in self.population:
-            print(person.is_alive)
-            print(person.is_vaccinated)
-            print(person.infection)
+            print("person is alive " + str(person.is_alive))
+            print("person is vaccinated " + str(person.is_vaccinated))
+            print("person is infected " + str(person.infection))
+ 
+        print("population size: " + str(self.population_size))
+        print("initial infected: " + str(self.initial_infected))
+        print("initial healthy: " + str(self.initial_healthy))
+        print("initial vaccinated: " + str(self.initial_vaccinated))
+        print("total dead: " + str(self.total_dead))
+        print("total vaccinated: " + str(self.total_vaccinated))
 
-        print(self.population_size)
-        print(self.initial_infected)
-        print(self.initial_healthy)
-        print(self.initial_vaccinated)
-        print(self.total_dead)
-        print(self.total_vaccinated)
-
-    def get_infected():
+    def get_infected(self):
         '''Gets all the infected people from the population and returns them as a list'''
         
 
