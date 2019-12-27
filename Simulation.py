@@ -63,8 +63,6 @@ class Simulation:
         print(infected_people)
         return infected_people
 
-
-
     def simulation_should_continue(self):
         '''Determines whether the simulation should continue.
         If everyone in the population is dead then return False, the simulation should not continue
