@@ -2,6 +2,7 @@ import random, sys
 from Person import Person
 from Virus import Virus
 from FileWriter import FileWriter
+from random import randint
 
 class Simulation:
   
@@ -70,6 +71,23 @@ class Simulation:
         If there are no more infected people left and everyone is either vaccinated or dead return False
         In all other cases return True'''
         #TODO: finish this method
+        for i in self.population:
+            if self.total_dead == self.population_size:
+                print('test1')
+                return False
+
+            elif self.total_vaccinated == self.population_size:
+                print('test2')
+                return False
+
+            elif len(self.get_infected()) == 0:
+                print('test3')
+                return False
+
+            else:
+                print('test4')
+                return True
+
         
 
     def run(self):
@@ -107,19 +125,25 @@ class Simulation:
         if it returns false then the person is no longer alive, does not have an infection and one is added to total dead
         if it returns true then the person no longer has an infection and is vaccinated, one is added to total vaccinated'''
         #TODO: finish this method
+        for infected_person in infected:
+            if infected_person.did_survive_infection() == False:
+                infected_person.infection = None
+                infected_person.is_alive = False
+                self.total_dead += 1
+
+            elif infected_person.did_survive_infection() == True:
+            # else:
+                infected_person.infection = None
+                infected_person.is_vaccinated == True
+                self.total_vaccinated += 1
             
 
 
     def time_step(self, infected):
         ''' For every infected person interact with a random person from the population 10 times'''
 
-        for infected_person in infected:
-
-            for i in range(10):
-                #TODO: get a random index for the population list
-                #TODO: using the random index get a random person from the population
-                #TODO: call interaction() with the current infected person and the random person
-                pass
+        
+                
 
 
     # def interaction(self, infected, random_person):
