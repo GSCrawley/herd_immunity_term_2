@@ -2,7 +2,7 @@ import random, sys
 from Person import Person
 from Virus import Virus
 from FileWriter import FileWriter
-from random import randint
+from random import randint, randrange
 
 class Simulation:
   
@@ -73,19 +73,19 @@ class Simulation:
         #TODO: finish this method
         for i in self.population:
             if self.total_dead == self.population_size:
-                print('test1')
+                # print('test1')
                 return False
 
             elif self.total_vaccinated == self.population_size:
-                print('test2')
+                # print('test2')
                 return False
 
             elif len(self.get_infected()) == 0:
-                print('test3')
+                # print('test3')
                 return False
 
             else:
-                print('test4')
+                # print('test4')
                 return True
 
         
@@ -137,26 +137,54 @@ class Simulation:
                 infected_person.is_vaccinated == True
                 self.total_vaccinated += 1
             
-
-
     def time_step(self, infected):
-        ''' For every infected person interact with a random person from the population 10 times'''
+        ''' For every infected person interact  a random person from the population 10 times'''
+        for infected_person in infected:
 
+            for i in range(10):
+                #TODO: get a random index for the population list
+                random_index = randint(0, len(self.population) - 1)
+
+                #TODO: using the random index get a random person from the population
+                random_person = random.choice(self.population)
+
+                #TODO: call interaction() with the current infected person and the random person
+                self.interaction(infected_person, random_person)
+
+    def interaction(self, infected_person, random_person):
+        # If the infected person is the same object as the random_person return and do nothing
+        # if the random person is not alive return and do nothing
+        # if the random person is vaccinated return and do nothing
+        # if the random person is not vaccinated:
+        #     generate a random float between 0 and 1
+        #     if the random float is less then the infected person's virus reproduction number then the random person is infected
+        #     othersie the random person is vaccinated and one is added to the total vaccinated'''
+        # #TODO: finish this method
+        if infected_person is random_person:
+
+            return
+
+        if random_person.is_alive == False:
+
+            return
+
+        if random_person.is_vaccinated == True:
+            
+            return
+
+        #elif random_person.is_vaccinated == False:
+        else:
+            random_float = randrange(0.0,1.0)
+            # print("test5")
+            if random_float < infected_person.infection.reproduction_num:
+                random_person.infection = infected_person.infection
+                # print("test6")
+
+            else:
+                random_person.is_vaccinated = True
+                self.total_vaccinated += 1
+                # print("test7")
         
-                
-
-
-    # def interaction(self, infected, random_person):
-    #     If the infected person is the same object as the random_person return and do nothing
-    #     # if the random person is not alive return and do nothing
-    #     # if the random person is vaccinated return and do nothing
-    #     # if the random person is not vaccinated:
-    #     #     generate a random float between 0 and 1
-    #     #     if the random float is less then the infected person's virus reproduction number then the random person is infected
-    #     #     othersie the random person is vaccinated and one is added to the total vaccinated'''
-    #     # #TODO: finish this method
-        
-
 
 if __name__ == "__main__":
     virus_name = "Malaise"

@@ -5,6 +5,6 @@ Initial Vaccinated: 5
 Initial Healthy: 10
 Initial Infected: 1
 
-Simulation Ended after 1 turns
-Total Dead: 1
+Simulation Ended after 3 turns
+Total Dead: 11
 Total Vaccinated: 5
