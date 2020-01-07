@@ -61,7 +61,6 @@ class Simulation:
         for person in self.population:
             if person.infection != None:
                 infected_people.append(person)
-        #print(infected_people)
         return infected_people
 
     def simulation_should_continue(self):
